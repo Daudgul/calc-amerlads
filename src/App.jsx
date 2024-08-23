@@ -24,7 +24,6 @@ function App() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   function getDetails(unit, currency, perValue, totalVlaue, dollar) {
-    console.log(calculateValues(unit, currency, dollar, perValue, totalVlaue));
     calculateValues(unit, currency, dollar, perValue, totalVlaue);
     setShowInput(false);
   }
@@ -149,7 +148,7 @@ function App() {
             <Button onClick={onOpen}>History</Button>
           </Box>
         )} */}
-        <Box width={"350px"} backgroundColor={"white"}>
+        <Box width={"90%"} backgroundColor={"white"}>
           {!showInput ? (
             <Calculation getBack={getBack} items={items} />
           ) : (
