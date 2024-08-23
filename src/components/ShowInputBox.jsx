@@ -74,7 +74,7 @@ function ShowInputBox({ getDetails }) {
       <Card>
         <CardHeader>
           <Text fontSize="lg" fontWeight="bold">
-            Amerlads Calculation
+            Amerlads Calculator
           </Text>
         </CardHeader>
         <Divider />
