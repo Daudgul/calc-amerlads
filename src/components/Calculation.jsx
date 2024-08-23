@@ -89,6 +89,14 @@ function Calculation({ getBack, items }) {
     return getWords(number).trim();
   }
 
+  function formatNumber(number) {
+    // Format the number to exactly 3 decimal places
+    let formatted = number.toFixed(3);
+
+    // Convert it back to a number to remove trailing zeros
+    return parseFloat(formatted);
+  }
+
   return (
     <Box p={4} maxW="md" mx="auto">
       <Button my={5} onClick={getBack}>
@@ -121,13 +129,16 @@ function Calculation({ getBack, items }) {
       {/* Third Card */}
       <Box borderWidth="1px" borderRadius="md" p={4} mb={4} boxShadow="md">
         <Text mb={2}>
-          <strong>1 Carat Price (INR) :</strong> {items.oneCaratInInr} ₹
+          <strong>1 Carat Price (INR) :</strong>{" "}
+          {formatNumber(items.oneCaratInInr)} ₹
         </Text>
         <Text mb={2}>
-          <strong>1 Gram Price (INR) :</strong> {items.oneGramInInr} ₹
+          <strong>1 Gram Price (INR) :</strong>{" "}
+          {formatNumber(items.oneGramInInr)} ₹
         </Text>
         <Text mb={2}>
-          <strong>Total Price (INR) :</strong> {items.totalCaratInInr} ₹
+          <strong>Total Price (INR) :</strong>{" "}
+          {formatNumber(items.totalCaratInInr)} ₹
         </Text>
         <Text color={"red"} mb={2}>
           {" "}
@@ -138,13 +149,16 @@ function Calculation({ getBack, items }) {
       {/* Fourth Card */}
       <Box borderWidth="1px" borderRadius="md" p={4} mb={4} boxShadow="md">
         <Text mb={2}>
-          <strong>1 Carat Price (Dollar) :</strong> {items.oneCaratInDollar} $
+          <strong>1 Carat Price (Dollar) :</strong>{" "}
+          {formatNumber(items.oneCaratInDollar)} $
         </Text>
         <Text mb={2}>
-          <strong>1 Gram Price (Dollar) :</strong> {items.oneGramInDollar} $
+          <strong>1 Gram Price (Dollar) :</strong>{" "}
+          {formatNumber(items.oneGramInDollar)} $
         </Text>
         <Text mb={2}>
-          <strong>Total Price (Dollar) :</strong> {items.totalCaratInDollar} $
+          <strong>Total Price (Dollar) :</strong>{" "}
+          {formatNumber(items.totalCaratInDollar)} $
         </Text>
         <Text color={"red"} mb={2}>
           {numberToWords(Math.floor(items.totalCaratInDollar))} $

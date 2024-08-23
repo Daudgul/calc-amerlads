@@ -137,7 +137,7 @@ function ShowInputBox({ getDetails }) {
               </FormLabel>
               <Input
                 id="totalCarat"
-                type="text"
+                type="number"
                 value={totalCarat}
                 onChange={(e) => setTotalCarat(e.target.value)}
                 // isReadOnly

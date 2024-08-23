@@ -24,6 +24,7 @@ function App() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   function getDetails(unit, currency, perValue, totalVlaue, dollar) {
+    console.log(calculateValues(unit, currency, dollar, perValue, totalVlaue));
     calculateValues(unit, currency, dollar, perValue, totalVlaue);
     setShowInput(false);
   }
@@ -102,21 +103,21 @@ function App() {
     }
 
     const values = {
-      oneCaratInInr,
-      oneCaratInDollar,
-      oneGramInInr,
-      oneGramInDollar,
-      totalCarats,
-      totalGrams,
-      totalCaratInInr,
-      totalCaratInDollar,
-      totalGramInInr,
-      totalGramInDollar,
-      unit,
+      oneCaratInInr: Number(oneCaratInInr),
+      oneCaratInDollar: Number(oneCaratInDollar),
+      oneGramInInr: Number(oneGramInInr),
+      oneGramInDollar: Number(oneGramInDollar),
+      totalCarats: Number(totalCarats),
+      totalGrams: Number(totalGrams),
+      totalCaratInInr: Number(totalCaratInInr),
+      totalCaratInDollar: Number(totalCaratInDollar),
+      totalGramInInr: Number(totalGramInInr),
+      totalGramInDollar: Number(totalGramInDollar),
+      dollarToInrRate: Number(dollarToInrRate),
+      pricePerUnit: Number(pricePerUnit),
+      totalUnits: Number(totalUnits),
       currency,
-      dollarToInrRate,
-      pricePerUnit,
-      totalUnits,
+      unit,
     };
     setItems(values);
 
@@ -148,7 +149,7 @@ function App() {
             <Button onClick={onOpen}>History</Button>
           </Box>
         )} */}
-        <Box width={"90%"} backgroundColor={"white"}>
+        <Box width={"350px"} backgroundColor={"white"}>
           {!showInput ? (
             <Calculation getBack={getBack} items={items} />
           ) : (
@@ -158,7 +159,7 @@ function App() {
         <Box>
           <Modal isCentered isOpen={isOpen} onClose={onClose}>
             <ModalOverlay />
-            <ModalContent maxW={"340px"}>
+            <ModalContent maxW={"350px"}>
               <ModalHeader>Saved Calculation</ModalHeader>
               <ModalCloseButton />
               <ModalBody>no items found</ModalBody>
